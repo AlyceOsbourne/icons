@@ -1,0 +1,10 @@
+{
+	"id": "icons",
+	"name": "Icons",
+	"version": "1.0.0",
+	"minAppVersion": "1.0.0",
+	"description": "Add icons to your Notes",
+	"author": "AlyceOsbourne",
+	"authorUrl": "https://github.com/AlyceOsbourne",
+	"isDesktopOnly": false
+}
