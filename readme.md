@@ -1,21 +1,65 @@
-Overview
-The IconPlugin enhances your Obsidian experience by allowing custom icons to be used in Markdown files and the file explorer based on metadata or specific syntax within your notes. It searches for icon indications within your notes and dynamically replaces them with SVG icons, rendering them inline.
+## Features
 
-Features
-Dynamic Icon Replacement: Automatically replaces specified icon placeholders in Markdown files with SVG icons.
-File Explorer Icons: Displays custom icons next to files in the file explorer if specified in the file's frontmatter.
-Customizable Icon Sizes and Colors: Icons adjust to the text size and inherit the current text color.
-Installation
-Download the latest release from the GitHub Releases page.
-Extract the plugin into your .obsidian/plugins directory.
-Reload Obsidian.
-Enable the plugin via Settings > Community Plugins > Browse.
-Usage
-To use custom icons in your Markdown files, add placeholders in the format :folderName|iconName:. For example, using :flags|us: will render the U.S. flag if it exists in the specified folder within your icon packs.
+- **Easy Integration**: Seamlessly add SVG icons to your Obsidian notes.
+- **Dynamic Loading**: Dynamically load icons directly from the `packs` folder within your Obsidian vault.
 
-Including Extra Icon Packs
-To include extra icon packs in the IconPlugin:
+## Getting Started
 
-Prepare your SVG icons and organize them into folders by category or pack name.
-Place these folders in the .obsidian/plugins/icons/packs/ directory in your vault.
-Reference icons in your notes or frontmatter using the format specified above (:folderName|iconName:).
+To leverage the power of custom SVG icons within Obsidian, you'll need to install the plugin using Obsidian's BRAT (Beta Reviewer's Advanced Toolkit). Follow these steps to get started:
+
+### Installation using BRAT
+
+1. Open Obsidian and go to `Settings`.
+2. Navigate to `Community plugins` and disable `Safe mode`.
+3. Click on `Browse` and then switch to the `BRAT` tab.
+4. Search for the **Icons** plugin and install it.
+
+### Using SVG Packs
+
+To use icons, you must first download your desired SVG packs. Here's how to prepare them:
+
+#### Downloading SVG Packs
+
+1. Choose an SVG pack from a reputable source such as:
+   - [FontAwesome](https://fontawesome.com)
+   - [Material Icons](https://material.io/resources/icons/)
+   - [Feather Icons](https://feathericons.com)
+
+#### Adding SVG Packs to Your Project
+
+1. Extract the downloaded SVG pack.
+2. Locate the `packs` folder in your Obsidian vault's plugin directory. Create one if it doesn't exist.
+3. Copy the extracted SVG files into the `packs` folder.
+
+Your directory structure should now resemble:
+
+```plaintext
+.obsidian/
+└── plugins/
+    └── icons/
+        └── packs/
+            ├── pack1/
+            │   ├── icon1.svg
+            │   ├── icon2.svg
+            │   └── ...
+            └── pack2/
+                ├── icon1.svg
+                └── icon2.svg
+```
+
+### Configuring Icons
+
+To utilize icons within your notes:
+
+1. **Icon Tag**: Use the following syntax to embed an icon:
+   - Syntax: \`:pack|name:\`
+     - `pack`: Specifies the folder name inside the `packs` directory.
+     - `name`: Specifies the filename of the SVG icon (excluding the `.svg` extension).
+
+Embedding this tag in your notes allows inline display of icons. For setting a note's icon in the file explorer, add this to your front matter:
+
+```yaml
+icon: ":pack|name:"
+```
+
+This configuration will set the desired icon for your note.
