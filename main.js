@@ -33,21 +33,14 @@ class IconPlugin extends obsidian.Plugin {
                                 console.error(`Error loading icon: ${err}`);
                                 return;
                             }
-                            node.style.padding = '0';
-                            node.style.margin = '0';
-                            node.style.display = 'inline-block';
-                            node.style.lineHeight = '0';
-
                             const iconHtml = `<span class="custom-icon">${data}</span>`;
                             node.innerHTML = node.innerHTML.replace(match, iconHtml);
                             node.style.backgroundColor = 'transparent';
                             const svg = node.querySelector('svg');
 
-                            let fontSize = window.getComputedStyle(node.parentElement).fontSize;
-                            fontSize = parseFloat(fontSize) * 1.2;
+                            const fontSize = window.getComputedStyle(node.parentElement).fontSize;
                             svg.setAttribute('width', fontSize);
                             svg.setAttribute('height', fontSize);
-                            svg.style.verticalAlign = 'middle';
                             svg.style.fill = 'currentColor';
                         });
                     });
@@ -106,7 +99,6 @@ class IconPlugin extends obsidian.Plugin {
                 row.style.display = tag.includes(value) ? '' : 'none';
             });
         });
-        modal.contentEl.style.height = '500px';
         modal.contentEl.style.maxHeight = '500px';
         modal.contentEl.style.overflowY = 'auto';
         modal.open();
@@ -175,12 +167,8 @@ class IconPlugin extends obsidian.Plugin {
                 }
                 iconElement.innerHTML = data;
                 const svg = iconElement.querySelector('svg');
-                let fontSize = window.getComputedStyle(titleElement).fontSize;
-                fontSize = parseFloat(fontSize) * 1.5;
-                svg.setAttribute('width', fontSize);
-                svg.setAttribute('height', fontSize);
-                svg.style.verticalAlign = 'middle';
-                svg.style.marginRight = '0.5em';
+                svg.setAttribute('width', '1em');
+                svg.setAttribute('height', '1em');
                 svg.style.fill = 'currentColor';
             });
         }
